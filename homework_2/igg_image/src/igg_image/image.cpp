@@ -1,10 +1,13 @@
-#include <image.h>
-#include <io_tools.h>
+#include <iostream>
+#include "image.h"
+#include "io_tools.h"
 
-bool Image::FillFromPgm(const std::string &file_name) {
+using namespace igg;
+
+ bool Image::FillFromPgm(const std::string &file_name){
   igg::io_tools::ImageData readImageData;
 
-  readImageData = ReadFromPgm(file_name);
+  readImageData = igg::io_tools::ReadFromPgm(file_name);
 
   if (readImageData.data.empty()) {
     return false;
@@ -15,22 +18,21 @@ bool Image::FillFromPgm(const std::string &file_name) {
   max_val_ = readImageData.max_val;
 
   copy(readImageData.data.begin(), readImageData.data.end(),
-       back_insterter(data_));
+       back_inserter(data_));
 
   return true;
 }
 
-void Image::WriteToPgm(const std::string &file_name) const {
+ void Image::WriteToPgm(const std::string &file_name) const {
   igg::io_tools::ImageData writeImageData;
 
   writeImageData.rows = rows_;
   writeImageData.cols = cols_;
   writeImageData.max_val = max_val_;
-  writeImageData.data = data_
+  writeImageData.data = data_;
 
-      if (WriteToPgm(&writeImageData, file_name) == false) {
-  std:
-    cout << "Image data is not written!!!" << std::endl;
+      if (igg::io_tools::WriteToPgm(writeImageData, file_name) == false) {
+    std::cout << "Image data is not written!!!" << std::endl;
   }
 }
 
@@ -44,17 +46,17 @@ std::vector<float> Image::ComputeHistogram(int bins) const {
       for (const int &eachPixel : data_) {
         if ((eachPixel >= (bin_number * max_val_ / bins)) &&
             (eachPixel < ((bin_number + 1) * max_val_ / bins))) {
-          historgram[bin_number] += 1;
+          histogram[bin_number] += 1;
         }
       }
-      historgram[bin_number] /= (rows_ * cols_);
+      histogram[bin_number] /= (rows_ * cols_);
     }
   }
 
   return histogram;
 }
 
-void igg::Image::DownScale(int scale)
+void Image::DownScale(int scale)
 {
     int rows_new = rows_/scale;
     int cols_new = cols_/scale;
