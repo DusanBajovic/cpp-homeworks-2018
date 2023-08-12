@@ -24,9 +24,6 @@ public:
   std::vector<float> ComputeHistogram(int bins) const;
   void DownScale(int scale);
   void UpScale(int scale);
-
-  int Size() { return data_.capacity();}
-
 private:
   int rows_ = 0;
   int cols_ = 0;
