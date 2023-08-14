@@ -2,7 +2,6 @@
 #include "io_tools.h"
 #include <iostream>
 
-
 using namespace igg;
 
 bool Image::FillFromPgm(const std::string &file_name) {
@@ -32,9 +31,7 @@ void Image::WriteToPgm(const std::string &file_name) const {
   writeImageData.max_val = max_val_;
   writeImageData.data = data_;
 
-  if (igg::io_tools::WriteToPgm(writeImageData, file_name) == false) {
-    std::cout << "Image data is not written!!!" << std::endl;
-  }
+  igg::io_tools::WriteToPgm(writeImageData, file_name);
 }
 
 std::vector<float> Image::ComputeHistogram(int bins) const {
@@ -73,7 +70,6 @@ void Image::DownScale(int scale) {
 
   rows_ = rows_new;
   cols_ = cols_new;
-  data_.resize(rows_ * cols_);
   data_ = data_new;
 }
 
@@ -93,6 +89,5 @@ void Image::UpScale(int scale) {
 
   rows_ = rows_new;
   cols_ = cols_new;
-  data_.resize(rows_ * cols_);
   data_ = data_new;
 }
