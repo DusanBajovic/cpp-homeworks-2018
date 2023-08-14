@@ -145,6 +145,3 @@ TEST(TestImage, ImageUpScaleLena) {
   EXPECT_EQ(128, lena.rows());
   EXPECT_EQ(128, lena.cols());
 }
-
-
-
