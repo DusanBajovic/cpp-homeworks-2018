@@ -10,6 +10,3 @@ endif()
 #################### Create a library 'image' below this line ##################
 add_library(image image.cpp)
 target_link_libraries(image ${GIVEN_LIB})
-
-add_executable(main main.cpp)
-target_link_libraries(main image)
