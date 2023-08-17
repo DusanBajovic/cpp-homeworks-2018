@@ -5,7 +5,7 @@ set(TEST_BINARY ${PROJECT_NAME}_test)
 add_executable(
   ${TEST_BINARY}
   test_init.cpp
-#  # test_resize.cpp
+  test_resize.cpp
 #  # test_dummy_strategy.cpp
 #  # test_histogram.cpp
 #  # test_from_ppm.cpp

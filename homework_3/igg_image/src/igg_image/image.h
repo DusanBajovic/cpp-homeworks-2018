@@ -32,6 +32,9 @@ public:
   int cols() const { return cols_; }
   Pixel &at(int row, int col) { return data_.at(row * cols_ + col); }
 
+  void DownScale(int scale);
+  void UpScale(int scale);
+
 private:
   // TODO: add missing private members when needed.
   const IoStrategy &io_strategy_;
