@@ -9,7 +9,7 @@ add_executable(
 #  # test_dummy_strategy.cpp
 #  # test_histogram.cpp
 #  # test_from_ppm.cpp
-#  # test_from_png.cpp
+  test_from_png.cpp
 )
 target_link_libraries(${TEST_BINARY}
   image

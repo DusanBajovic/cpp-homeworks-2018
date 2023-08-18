@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <string>
 #include <vector>
 
 
@@ -34,6 +35,9 @@ public:
 
   void DownScale(int scale);
   void UpScale(int scale);
+
+  bool ReadFromDisk(const std::string& file_name);
+  void WriteToDisk(const std::string &file_name) const;
 
 private:
   // TODO: add missing private members when needed.
