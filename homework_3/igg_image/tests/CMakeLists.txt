@@ -6,10 +6,10 @@ add_executable(
   ${TEST_BINARY}
   test_init.cpp
   test_resize.cpp
-#  # test_dummy_strategy.cpp
+  test_dummy_strategy.cpp
 #  # test_histogram.cpp
-#  # test_from_ppm.cpp
   test_from_png.cpp
+  test_from_ppm.cpp
 )
 target_link_libraries(${TEST_BINARY}
   image

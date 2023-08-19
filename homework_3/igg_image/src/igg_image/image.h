@@ -4,11 +4,10 @@
 
 #pragma once
 
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <string>
 #include <vector>
-
 
 #include "io_strategies/strategy.h"
 
@@ -36,7 +35,7 @@ public:
   void DownScale(int scale);
   void UpScale(int scale);
 
-  bool ReadFromDisk(const std::string& file_name);
+  bool ReadFromDisk(const std::string &file_name);
   void WriteToDisk(const std::string &file_name) const;
 
 private:
