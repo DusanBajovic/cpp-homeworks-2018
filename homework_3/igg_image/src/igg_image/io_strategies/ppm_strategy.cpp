@@ -42,11 +42,19 @@ ImageData PpmIoStrategy::Read(const std::string &file_name) const {
   ImageData image_data;
 
   if (!image) {
+    image_data.rows = 0;
+    image_data.cols = 0;
+    image_data.max_val = 0;
+    image_data.data.clear();
     return image_data;
   }
 
   std::getline(image, line);
   if (line != "P3") {
+    image_data.rows = 0;
+    image_data.cols = 0;
+    image_data.max_val = 0;
+    image_data.data.clear();
     return image_data;
   }
 
