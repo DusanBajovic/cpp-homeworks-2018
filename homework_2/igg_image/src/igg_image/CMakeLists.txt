@@ -1,6 +1,6 @@
 #################### Import the 'io_tools' library here ########################
 find_library(GIVEN_LIB 
-             NAMES "libio_tools"
+             NAMES "io_tools"
              PATHS ${LIBRARY_OUTPUT_PATH})
 
 if(${GIVEN_LIB} STREQUAL "GIVEN_LIB-NOTFOUND")
